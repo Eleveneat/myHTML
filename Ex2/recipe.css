@@ -1,0 +1,24 @@
+h1, h2, h3, h4, h5 {
+	color: #A4A400;
+	background-color: #F0F0F0;
+	text-decoration: underline;
+	text-align: left;
+	font-family: "Century Gothic", "Futura", "Verdana";
+	font-size: 18pt;
+}
+h1 {
+	text-align: center;
+	font-size: 22pt;
+}
+body {
+	color: #404040;
+	background-color: white;
+	font-size: 11pt;
+	font-family: "Georgia","Garamond";
+}
+a {
+	color: #A4A400;
+}
+blockquote {
+	background-color: #FFFFC8;
+}
