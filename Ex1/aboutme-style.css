@@ -1,0 +1,63 @@
+body {
+  background: #CFCFCF;
+}
+
+strong {
+  	color: purple
+}
+
+h1, h2 {
+	color: #2F4F4F;
+	font-family: Arial;
+}
+
+p {
+    font-family: Georgia;
+    font-style: normal;
+    font-size: 20px;
+}
+
+li {
+    font-family: Tahoma;
+	font-style: italic;
+}
+
+dt {
+	color: maroon;
+}
+
+ol{
+    list-style-type: none;
+    counter-reset: line 4;
+}
+
+ol li:before{
+    content: counter(line) '. ';
+    counter-increment: line -1;
+}
+
+dl{
+    margin-left:18px;
+}
+a:link {
+    color: #00FF00;
+    text-decoration:none;
+}
+
+a:visited {
+    color: #FF0000;
+    text-decoration:none;
+}
+
+a:hover {
+    color: #FF00FF;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #0000FF;
+}
+
+p::first-letter {
+    font-size: 1.5em;
+}
