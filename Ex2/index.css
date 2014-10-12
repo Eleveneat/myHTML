@@ -1,0 +1,24 @@
+/*
+*    Filename: index.css
+*    Description: The style sheet for index.html.
+*    Last modified: 2014-10-12 09:58
+*
+*    Author: 陈炜健 - 13331018
+*    Copyright (C) 2014 All rights reserved.
+*/
+
+body {
+	color: #696969;
+	background-color: white;
+	text-align: left;
+	font-size: 23pt;
+	font-family: "Georgia","Garamond";
+}
+h1, h2, h3 {
+	color: #CD853F;
+	background-color: #FFF8DC;
+	text-decoration: underline;
+	text-align: center;
+	font-family: "Century Gothic", "Futura", "Verdana";
+	font-size: 30pt;
+}
