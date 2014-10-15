@@ -1,3 +1,20 @@
+/*
+*    Filename: recipe.css
+*    Description: The style sheet for pie.html.
+*    Last modified: 2014-10-12 09:04
+*
+*    Author: 陈炜健 - 13331018
+*    Copyright (C) 2014 All rights reserved.
+*/
+
+body {
+	color: #404040;
+	background-color: white;
+	background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
+	background-attachment: fixed;
+	font-size: 11pt;
+	font-family: "Georgia","Garamond";
+}
 h1, h2, h3, h4, h5 {
 	color: #A4A400;
 	background-color: #F0F0F0;
@@ -5,20 +22,18 @@ h1, h2, h3, h4, h5 {
 	text-align: left;
 	font-family: "Century Gothic", "Futura", "Verdana";
 	font-size: 18pt;
+	letter-spacing: 0.2em;
 }
 h1 {
 	text-align: center;
 	font-size: 22pt;
-}
-body {
-	color: #404040;
-	background-color: white;
-	font-size: 11pt;
-	font-family: "Georgia","Garamond";
 }
 a {
 	color: #A4A400;
 }
 blockquote {
 	background-color: #FFFFC8;
+}
+ul li {
+	list-style-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif);
 }
