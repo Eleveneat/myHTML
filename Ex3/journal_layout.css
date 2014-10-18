@@ -1,0 +1,63 @@
+/*
+*    Filename: journal_layout.css
+*    Description: None.
+*    Last modified: 2014-10-18 11:34
+*
+*    陈炜健 － 13331018
+*    Email: eleveneat@gmail.com
+*    Copyright (C) 2014 All rights reserved.
+*/
+body {
+	background-image: url(images/background.gif);
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.word {
+	background-color: white;
+	border: 10px white solid;
+	overflow: hidden;
+}
+.A {
+	background-color: #A8F0F0;
+	padding-bottom: 5px;
+	text-align: right;
+ }
+.A1 {
+	 font-size: 14px;
+}
+.B {
+	background-color: #E8FBFB;
+	border: 4px #C2E9E9 solid;
+	margin-top: 10px;
+	overflow: hidden;
+	padding-top: 5px;
+}
+.B1 {
+	border-bottom: 2px #009097 dashed;
+}
+.C {
+	background-color: #E8FBFB;
+	border: 4px #C2E9E9 solid;
+	margin-top: 10px;
+	overflow: hidden;
+	padding-top: 5px;
+}
+.C1 {
+	border-bottom: 2px #009097 dashed;
+}
+.word img {
+	float: right;
+}
+#Friends {
+	background-color: rgb(156, 225, 224);
+	border: 4px rgb(21, 144, 155) solid;
+	float: left;
+	margin-right: 5px;
+	margin-top: 10px;
+	padding-left: 5px;
+	width: 20%;
+}
+#BC {
+	float: left;
+	width: 77%;
+}
