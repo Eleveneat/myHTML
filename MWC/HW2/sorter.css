@@ -1,0 +1,18 @@
+table {
+	border: 1px grey solid;
+	border-spacing: 0px;
+}
+th  {
+	border: 1px grey solid;
+	background-color: rgba(3, 12, 110, 1);
+	color: white;
+	text-align: left;
+	padding-right: 40px;
+}
+td {
+	border: 1px grey solid;
+	padding-right: 40px;
+}
+.alternate {
+	background-color: rgba(214, 214, 214, 1);
+}
