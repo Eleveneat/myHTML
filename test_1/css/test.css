@@ -1,0 +1,165 @@
+
+
+* {
+	font-family: "Century Gothic", "Futura", "Verdana";
+}
+
+
+#navigation {
+	width: 100%;
+	height: 46px;
+	background-color: rgba(0, 77, 190, 1);
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	text-align: center;
+}
+#inner {
+	width: 960px;
+	height: 45px;
+	margin: auto;
+	position: relative;
+}
+#logo {
+	position: relative;
+	top: 11px;
+	left: 0px;
+}
+#search {
+	width: 80px;
+	height: 30px;
+}
+#seachImage {
+	width: 367px;
+	height: 30px;
+	position: relative;
+	top: 10px;
+}
+#ask_button {
+	width: 66px;
+	height: 32px;
+	color: white;
+	display: inline;
+	background-color: rgba(4, 91, 224, 1);
+}
+#top_home {
+	position: relative;
+	display: inline;
+}
+#top_home li{
+	list-style-type: none;
+	display: inline;
+	color: white;
+}
+#top_right {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	display: inline;
+}
+#top_right li{
+	list-style-type: none;
+	display: inline;
+	color: white;
+}
+#humanImage {
+	position: relative;
+	top: 6px;
+
+}
+
+
+
+#bigBody {
+	/*position: relative;*/
+	width: 960px;
+	height: 1600px;
+/*	background-color: grey;
+*/	margin: auto;
+	padding-top: 25px;
+	margin-top: 46px;
+	position: relative;
+}
+#left {
+	/*float: left;*/
+	width: 630px;
+	/*display: inline;*/
+}
+#leftAll {
+	width: 632px;
+}
+#tittle {
+	padding-bottom: 15px;
+	border-bottom: 2px grey solid;
+}
+#list {
+	font-size: 12px;
+}
+.top_recommand {
+	padding-bottom: 15px;
+}
+.top_recommand > h2 {
+	font-size:15px;
+}
+.avatar {
+	width: 38px;
+	height: 38px;
+	float: left;
+}
+.main-text {
+}
+.cry {
+	width: 80px;
+	height: 60px;
+	float: left;
+	margin-right: 10px;
+}
+.next_recommand {
+	font-size: 15px;
+	margin: 5px;
+	padding: 8px;
+	border-top: 2px grey solid;
+}
+.wenda {
+	float: right;
+}
+#explore-tab {
+	width: 960px;
+}
+#zuire li{
+	list-style-type: none;
+	display: inline;
+}
+#text-tab {
+	font-size: 12px;
+}
+#text-tab > button {
+	width: 632px;
+	height: 30px;
+}
+#text-inner {
+	width: 632px;
+}
+.tab-item {
+	border-top: 2px grey solid;
+}
+
+#right {
+	/*display: inline;*/
+	/*float: right;*/
+	width:260px;
+	position: absolute;
+	top: 20px;
+	right: 0px;
+}
+.section-1 {
+	width: 270px;
+	height: 125px;
+	padding:5px;
+	text-align: center;
+	background-color: rgb(245, 245, 245);
+}
+.zuce {
+	width:110px;
+	height: 33px;
+}
