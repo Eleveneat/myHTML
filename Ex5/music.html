@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Music Viewer</title>
+		<!-- <title>Music Viewer</title> -->
+		<title>{{ title }}</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="http://www.cs.washington.edu/education/courses/cse190m/09sp/labs/3-music/viewer.css" type="text/css" rel="stylesheet" />
 	</head>
@@ -10,14 +11,26 @@
 	<body>
 		<div id="header">
 
-			<h1>190M Music Playlist Viewer</h1>
-			<h2>Search Through Your Playlists and Music</h2>
+			<!-- <h1>190M Music Playlist Viewer</h1> -->
+			<!-- <h2>Search Through Your Playlists and Music</h2> -->
+			<h1>{{ header1 }}</h1>
+			<h2>{{ header2 }}</h2>
 		</div>
 		
 		
 		<div id="listarea">
 			<ul id="musiclist">
-				<li class="mp3item">
+				{% for song in songs %}
+                <li class="mp3item">
+                	<a href="songs/{{ song }}">{{ song }}</a>
+                </li>
+            	{% end %}
+				{% for playlist in playlists %}
+                <li class="playlistitem">
+                	<a href="music.php?playlist={{ playlist }}">{{ playlist }}</a>
+                </li>
+            	{% end %}
+<!-- 				<li class="mp3item">
 					<a href="songs/Be More.mp3">Be More.mp3</a>
 					(5438375 b)
 				</li>
@@ -44,7 +57,7 @@
 
 				<li class="playlistitem">
 					<a href="music.php?playlist=playlist.txt">playlist.txt</a>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</body>
