@@ -45,7 +45,7 @@ body {
 	height: 412px;
 }
 #imformation > dl {
-	height: 508px;
+	/*height: 508px;*/
 	padding: 10px;
 	margin: 0px;
 	background-color: #A2B964;
@@ -60,7 +60,7 @@ body {
 }
 #comment_bar {
 	width: 550px;
-	height: 912px;
+	/*height: 912px;*/
 }
 #bad_review_rate {
 	width: 100%;
@@ -121,7 +121,7 @@ body {
 	background-color: #A2B964;
 }
 .w3c_icon {
-	position: absolute;
-	bottom: -445px;
+	position: fixed;
+	bottom: 0px;
 	right: 0px;
 }

@@ -23,11 +23,13 @@ class Info(object):
         fs.close()
 
 class GeneralOverview(object):
-    def __init__(self, overview_tittles_list, overview_details_list):
-        self.overview_tittles_list = overview_tittles_list
-        self.overview_details_list = overview_details_list
+    def __init__(self, overview_list):
+        self.overview_list = overview_list
     def getDirFileMessage(self, path):
-
+        fs = open(path, "r")
+        self.overview_list = fs.readlines()
+        tmp = self.overview_list[0]
+        fs.close()
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -37,8 +39,15 @@ class MainHandler(tornado.web.RequestHandler):
         grade = self.get_argument("grade", None)
         reviews_number = self.get_argument("reviews_number", None)
         rotten_or_fresh = self.get_argument("rotten_or_fresh", None)
-        overview_tittles_list = self.get_argument("overview_tittles_list", None)
-        overview_details_list = self.get_argument("overview_details_list", None)
+        overview_list = self.get_argument("overview_list", None)
+        # review_rotten_or_fresh_list = self.get_argument("review_rotten_or_fresh_list", None)
+        # review_content_list = self.get_argument("review_content_list", None)
+        # review_name_list = self.get_argument("review_name_list", None)
+        # review_company_list = self.get_argument("review_company_list", None)
+        review_rotten_or_fresh_list =[]
+        review_content_list = []
+        review_name_list = []
+        review_company_list = []
 
         asked_film_name = self.get_argument("film")
         picture_path = asked_film_name + "/" + "generaloverview.png"
@@ -53,25 +62,59 @@ class MainHandler(tornado.web.RequestHandler):
         else:
             rotten_or_fresh = "rottenbig.png"
 
-        generalOverview = GeneralOverview(overview_tittles_list, overview_details_list)
+        generalOverview = GeneralOverview(overview_list)
         generalOverview_path = "static/moviefiles/" + asked_film_name + "/generaloverview.txt"
         generalOverview.getDirFileMessage(generalOverview_path)
 
+        getReviewMessage(asked_film_name, review_rotten_or_fresh_list,\
+            review_content_list, review_name_list, review_company_list)
+
+
         self.render("movie.html", film_picture_path = picture_path,\
-            film_name = info.full_name, film_publish_year = info.publish_year, film_grade = info.grade, film_reviews_number = info.reviews_number,\
+            film_name = info.full_name,\
+            film_publish_year = info.publish_year,\
+            film_grade = info.grade,\
+            film_reviews_number = info.reviews_number,\
             film_rotten_or_fresh = rotten_or_fresh,\
-            film_overview_tittles_list = overview_tittles_list, film_overview_details_list = overview_details_list)
+            film_overview_list = generalOverview.overview_list,\
+            film_review_rotten_or_fresh_list = review_rotten_or_fresh_list,\
+            film_review_content_list = review_content_list,\
+            film_review_name_list = review_name_list,\
+            film_review_company_list = review_company_list)
 
+def getReviewMessage(asked_film_name, review_rotten_or_fresh_list,\
+    review_content_list, review_name_list, review_company_list):
+    path = "static/moviefiles/" + asked_film_name
+    all_file_list = os.listdir(path)
+    for item in all_file_list:
+        if item.find("review") is not -1:
+            fs = open(path + "/" + item, "r")
 
-application = tornado.web.Application(
-    [(r"/", MainHandler)],
-    static_path = os.path.join(os.path.dirname(__file__), "static"),
-    template_path = os.path.join(os.path.dirname(__file__), "templates"),
-    debug = True
-)
+            review_content_list.append(fs.readline())
+
+            rotten_or_fresh = fs.readline()
+            if rotten_or_fresh.find("ROTTEN") is not -1:
+                review_rotten_or_fresh_list.append("rotten.gif")
+            else:
+                review_rotten_or_fresh_list.append("fresh.gif")
+
+            review_name_list.append(fs.readline())
+
+            review_company_list.append(fs.readline())
+            fs.close()
+
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
+    application = tornado.web.Application(
+    [(r"/", MainHandler)],
+    template_path = os.path.join(os.path.dirname(__file__), "templates"),
+    static_path = os.path.join(os.path.dirname(__file__), "static"),
+    debug = True
+    )
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
+
+
+

@@ -30,9 +30,9 @@
 				</div>
 
 				<dl>
-					{% for foo in range(overview_tittles_list) %}
-					<dt>{{ film_overview_tittles_list[foo] }}</dt>
-					<dd>{{ film_overview_details_list[foo] }}</dd>
+					{% for item in film_overview_list %}
+					<dt>{{ item[:item.find(":")] }}</dt>
+					<dd>{{ item[item.find(":")+1:] }}</dd>
 					{% end %}
 					<!-- <dt>STARRING</dt>
 					<dd>Mako <br /> Sarah Michelle Gellar</dd>
@@ -71,101 +71,34 @@
 					<span id = "number"><div id = "rate">{{ film_grade }}%</div> ({{ film_reviews_number }} reviews total)</span>
 				</div>
 				<div class="left">
+					{% for foo_1 in range((len(film_review_rotten_or_fresh_list) + 1) / 2) %}
 					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/rotten.gif" alt="Rotten" />
-						<q>Ditching the cheeky, self-aware wink that helped to excuse the concept's inherent corniness, the movie attempts to look polished and 'cool,' but the been-there animation can't compete with the then-cutting-edge puppetry of the 1990 live-action movie.</q>
+						<p class="review">
+							<img src="{{ static_url('images') }}/{{ film_review_rotten_or_fresh_list[foo_1] }}" alt="RottenOrFresh">
+							<q>{{ film_review_content_list[foo_1] }}</q>
 						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						Peter Debruge <br />
-						<div class = "company">Variety</div>
+						<p class="author">
+							<img src="{{ static_url('images') }}/critic.gif" alt="Critic">
 						</p>
+						{{ film_review_name_list[foo_1] }}
+						<div class="company">{{ film_review_company_list[foo_1] }}</div>
 					</div>
-
-					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/fresh.gif" alt="Fresh" />
-						<q>TMNT is a fun, action-filled adventure that will satisfy longtime fans and generate a legion of new ones.</q>
-						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						Todd Gilchrist <br />
-						<div class = "company">IGN Movies</div>
-						</p>
-					</div>
-
-					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/rotten.gif" alt="Rotten" />
-						<q>It stinks!</q>
-						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						<div class = "company">Jay Sherman (unemployed)</div>
-						</p>
-					</div>
-
-					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/rotten.gif" alt="Rotten" />
-						<q>The rubber suits are gone and they've been redone with fancy computer technology, but that hasn't stopped them from becoming dull.</q>
-						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						Joshua Tyler <br />
-						<div class = "company">CinemaBlend.com</div>
-						</p>
-					</div>
+					{% end %}
 				</div>
 				<div class="right">
+					{% for foo_2 in range(len(film_review_rotten_or_fresh_list) / 2) %}
 					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/rotten.gif" alt="Rotten" />
-						<q>The turtles themselves may look prettier, but are no smarter; torn irreparably from their countercultural roots, our superheroes on the half shell have been firmly co-opted by the industry their creators once sought to spoof.</q>
+						<p class="review">
+							<img src="{{ static_url('images') }}/{{ film_review_rotten_or_fresh_list[foo_2 + foo_1] }}" alt="RottenOrFresh">
+							<q>{{ film_review_content_list[foo_2 + foo_1] }}</q>
 						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						Jeannette Catsoulis <br />
-						<div class = "company">New York Times</div>
+						<p class="author">
+							<img src="{{ static_url('images') }}/critic.gif" alt="Critic">
 						</p>
+						{{ film_review_name_list[foo_2 + foo_1] }}
+						<div class="company">{{ film_review_company_list[foo_2 + foo_1] }}</div>
 					</div>
-
-					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/rotten.gif" alt="Rotten" />
-						<q>Impersonally animated and arbitrarily plotted, the story appears to have been made up as the filmmakers went along.</q>
-						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						Ed Gonzalez <br />
-						<div class = "company">Slant Magazine</div>
-						</p>
-					</div>
-
-					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/fresh.gif" alt="Fresh" />
-						<q>The striking use of image and motion allows each sequence to leave an impression. It's an accomplished restart to this franchise.</q>
-						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						Mark Palermo <br />
-						<div class = "company">Coast (Halifax, Nova Scotia)</div>
-						</p>
-					</div>
-
-					<div class = "review_bar">
-						<p class = "review">
-						<img src="images/rotten.gif" alt="Rotten" />
-						<q>The script feels like it was computer generated. This mechanical presentation lacks the cheesy charm of the three live action films.</q>
-						</p>
-						<p class = "author">
-						<img src="images/critic.gif" alt="Critic" />
-						Steve Rhodes <br />
-						<div class = "company">Internet Reviews</div>
-						</p>
-					</div>
+					{% end %}
 				</div>
 			</div>
 
