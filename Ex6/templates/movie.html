@@ -13,24 +13,28 @@
 		<meta charset="utf-8" />
 		<title>TMNT - Rancid Tomatoes</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link href="movie.css" type="text/css" rel="stylesheet" />
+		<link href="{{ static_url('css') }}/movie.css" type="text/css" rel="stylesheet" />
 	</head>
 
 	<body>
 		<div id = "banner">
-			<img src="images/banner.png" alt="Rancid Tomatoes" />
+			<img src="{{ static_url('images') }}/banner.png" alt="Rancid Tomatoes" />
 		</div>
 
-		<h1 id = "main_title">TMNT (2007)</h1>
+		<h1 id = "main_title">{{ film_name }} ({{ film_publish_year }})</h1>
 		<div id = "container">
 
 			<div id = "imformation">
 				<div id = "picture">
-					<img src="images/generaloverview.png" alt="general overview" />
+					<img src="{{ static_url('moviefiles') }}/{{ film_picture_path }}" alt="general overview" />
 				</div>
 
 				<dl>
-					<dt>STARRING</dt>
+					{% for foo in range(overview_tittles_list) %}
+					<dt>{{ film_overview_tittles_list[foo] }}</dt>
+					<dd>{{ film_overview_details_list[foo] }}</dd>
+					{% end %}
+					<!-- <dt>STARRING</dt>
 					<dd>Mako <br /> Sarah Michelle Gellar</dd>
 
 					<dt>DIRECTOR</dt>
@@ -55,7 +59,7 @@
 					<dd>Action/Adventure, Comedies, Childrens, Martial Arts, Superheroes, Ninjas, Animated Characters</dd>
 
 					<dt>OFFICIAL MOVIE SITE</dt>
-					<dd><a href="http://www.tmnt.com/">The Official TMNT Site</a></dd>
+					<dd><a href="http://www.tmnt.com/">The Official TMNT Site</a></dd> -->
 				</dl>
 			</div>
 
@@ -63,8 +67,8 @@
 
 			<div id="comment_bar">
 				<div id = "bad_review_rate">
-					<img src="images/rottenbig.png" alt="Rotten" />
-					<span id = "number"><div id = "rate">32%</div> (88 reviews total)</span>
+					<img src="{{ static_url('images') }}/{{ film_rotten_or_fresh }}" alt="Rotten" />
+					<span id = "number"><div id = "rate">{{ film_grade }}%</div> ({{ film_reviews_number }} reviews total)</span>
 				</div>
 				<div class="left">
 					<div class = "review_bar">
